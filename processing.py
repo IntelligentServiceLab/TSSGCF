@@ -38,12 +38,12 @@ def check_for_pt_files(file_name,folder_path):
 
 def get_bert_emb():
     # flag1 和 flag2 判断之前是否生成过mashup和api的嵌入表示
-    flag1 = check_for_pt_files('mashup_descr_emb', "../../Data")
-    flag2 = check_for_pt_files('api_descr_emb', "../../Data")
+    flag1 = check_for_pt_files('mashup_descr_emb', "../Data")
+    flag2 = check_for_pt_files('api_descr_emb', "../Data")
     # print(flag1,flag2)
     # 从CSV文件中加载数据
-    mashup_data = pd.read_csv("../Data/Mashup_desc.csv", encoding='UTF-8', header=0)  # 使用Mashups.csv文件
-    api_data = pd.read_csv("../Data/API_desc.csv", encoding='UTF-8', header=0)  # 使用APIs.csv文件
+    mashup_data = pd.read_csv("Data/Mashup_desc.csv", encoding='UTF-8', header=0)  # 使用Mashups.csv文件
+    api_data = pd.read_csv("Data/API_desc.csv", encoding='UTF-8', header=0)  # 使用APIs.csv文件
 
     # 从数据中提取描述信息列
     mashup_descr = mashup_data['description']
@@ -53,13 +53,13 @@ def get_bert_emb():
     print("shape of mashup_desc ", mashup_descr.shape)
     print("shape of api_desc ", api_descr.shape)
 
-    mashup_descr_emb = bert_convert_emb(mashup_descr) if flag1==False else torch.load('../Data/mashup_descr_emb.pt', map_location=device)
+    mashup_descr_emb = bert_convert_emb(mashup_descr) if flag1==False else torch.load('Data/mashup_descr_emb.pt', map_location=device)
 
-    api_descr_emb = bert_convert_emb(api_descr) if flag2==False else torch.load('../Data/api_descr_emb.pt', map_location=device)
+    api_descr_emb = bert_convert_emb(api_descr) if flag2==False else torch.load('Data/api_descr_emb.pt', map_location=device)
     if not flag1:
-        torch.save(mashup_descr_emb, '../Data/mashup_descr_emb.pt')
+        torch.save(mashup_descr_emb, 'Data/mashup_descr_emb.pt')
     if not flag2:
-        torch.save(api_descr_emb, '../Data/api_descr_emb.pt')
+        torch.save(api_descr_emb, 'Data/api_descr_emb.pt')
     return mashup_descr_emb, api_descr_emb
 
 def bert_convert_emb(descriptions):
@@ -70,7 +70,7 @@ def bert_convert_emb(descriptions):
 
 def get_test_mapping():
     test_mapping = {}
-    with open("../Data/test.txt", 'r') as f:
+    with open("Data/test.txt", 'r') as f:
         for line in f:
             items = line.strip().split(' ')
             items = list(map(int,items))
@@ -79,7 +79,7 @@ def get_test_mapping():
 
 def get_train_mapping():
     train_mapping = {}
-    with open("../Data/train.txt", 'r') as f:
+    with open("Data/train.txt", 'r') as f:
         for line in f:
             items = line.strip().split(' ')
             items = list(map(int,items))
