@@ -5,7 +5,7 @@ from model.tssgcf import TSSGCF, bpr_loss, TextualSimilarityLoss
 from tqdm import tqdm
 # from model.loss import BPRLoss, TextSimilarityLoss
 # from model.similarity import get_sim_matrix
-from model.processing import get_sim_matrix, get_bert_emb, get_train_mapping, get_test_mapping, compute_full_sim_matrix
+from processing import get_sim_matrix, get_bert_emb, get_train_mapping, get_test_mapping, compute_full_sim_matrix
 from utils import *
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
