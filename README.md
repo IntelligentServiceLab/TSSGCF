@@ -44,6 +44,6 @@
 
 ### License
 
-- **Source Code**: The implementation of the TSSGCF model, along with the scripts for data processing and experimentation, is released under the **MIT License**. The original text of the MIT License can be found at: [The MIT License](https://opensource.org/license/MIT)
-- **Data**: The preprocessed dataset derived from ProgrammableWeb is provided under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license. See the [CC BY 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode) file for the full text.
+-This project is released under the [**MIT License**](https://opensource.org/license/MIT%7D%7B%5Ctextbf%7BMIT).
+-The complete text of the license can be found in the [LICENSE](LICENSE) file in the root directory of this repository.
 
